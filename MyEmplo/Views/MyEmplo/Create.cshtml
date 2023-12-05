@@ -1,0 +1,68 @@
+﻿@page
+@model MyEmplo.MVC.Views.MyEmplo.CreateModel
+
+<h1>Dodaj swojego pracownika</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form action="/MyEmplo/Create" method="post">
+            <div class="form-group mb-3">
+                <label class="control-label" for="FullName">FullName</label>
+                <input class="form-control" type="text" id="FullName" name="FullName">
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="control-label" for="Email">Email</label>
+                <input class="form-control" type="text" id="Email" name="Email">
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="control-label" for="About">About</label>
+                <input class="form-control" type="text" id="About" name="About">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="PhoneNumber">PhoneNumber</label>
+                <input class="form-control" type="text" id="PhoneNumber" name="PhoneNumber">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="DateOfEmployment">DateOfEmployment</label>
+                <input class="form-control" type="text" id="DateOfEmployment" name="DateOfEmployment">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="TypeOfEmployment">TypeOfEmployment</label>
+                <input class="form-control" type="text" id="TypeOfEmployment" name="TypeOfEmployment">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="Role">Role</label>
+                <input class="form-control" type="text" id="Role" name="Role">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="Country">Country</label>
+                <input class="form-control" type="text" id="Country" name="Country">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="Address">Address</label>
+                <input class="form-control" type="Address" id="Address" name="Address">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="BankAccountNumber">BankAccountNumber</label>
+                <input class="form-control" type="text" id="BankAccountNumber" name="BankAccountNumber">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="Skype">Skype</label>
+                <input class="form-control" type="text" id="Skype" name="Skype">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" for="Discord">Discord</label>
+                <input class="form-control" type="text" id="Discord" name="Discord">
+            </div>
+
+
+            <div class="form-group mb-3">
+                <input type="submit" value="Create" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>
