@@ -1,9 +1,10 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using MyEmplo.Application.Mappings;
 using MyEmplo.Application.MyEmplo;
-using MyEmplo.Application.Services;
+using MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo;
 using MyEmplo.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace MyEmplo.Application.Extensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IMyEmploService, MyEmploService>();
+            services.AddMediatR(typeof(CreateMyEmploCommand));
 
             services.AddAutoMapper(typeof(MyEmploMappingProfile));
 

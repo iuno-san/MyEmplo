@@ -1,21 +1,23 @@
-﻿using MyEmplo.Application.Services;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MyEmplo.Application.MyEmplo;
+using MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo;
+using MyEmplo.Application.MyEmplo.Queries.GetAllMyEmplo;
 
 namespace MyEmplo.MVC.Controllers
 {
     public class MyEmploController : Controller
     {
-        private readonly IMyEmploService _myEmploService;
+        private readonly IMediator _mediator;
 
-        public MyEmploController(IMyEmploService myEmploService)
+        public MyEmploController(IMediator mediator)
         {
-            _myEmploService = myEmploService;
+            _mediator = mediator;
         }
 
         public async Task<IActionResult> Index()
         {
-            var myEmplos = await _myEmploService.GetAll();
+            var myEmplos = await _mediator.Send(new GetAllMyEmploQuery());
             return View(myEmplos);
         }
 
@@ -25,14 +27,14 @@ namespace MyEmplo.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(MyEmploDto myEmplo)
+        public async Task<IActionResult> Create(CreateMyEmploCommand command)
         {
             if(!ModelState.IsValid)
             {
-                return View(myEmplo);
+                return View(command);
             }
 
-            await _myEmploService.Create(myEmplo);
+            await _mediator.Send(command);
             return RedirectToAction(nameof(Create));
         }
     }
