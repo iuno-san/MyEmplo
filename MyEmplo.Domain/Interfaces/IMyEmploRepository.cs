@@ -10,5 +10,6 @@ namespace MyEmplo.Domain.Interfaces
     {
         Task Create(Domain.Entities.MyEmplo myEmplo);
         Task<IEnumerable<Domain.Entities.MyEmplo>> GetAll();
+        Task<Domain.Entities.MyEmplo> GetByEncodedName(string encodedName);
     }
 }

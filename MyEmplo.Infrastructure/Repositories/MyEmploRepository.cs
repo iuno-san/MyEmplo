@@ -26,5 +26,8 @@ namespace MyEmplo.Infrastructure.Repositories
 
         public async Task<IEnumerable<Domain.Entities.MyEmplo>> GetAll()
         => await _dbContext.MyEmplos.ToListAsync();
+
+        public async Task<Domain.Entities.MyEmplo> GetByEncodedName(string encodedName)
+        => await _dbContext.MyEmplos.FirstAsync(c => c.EncodedName == encodedName);
     }
 }

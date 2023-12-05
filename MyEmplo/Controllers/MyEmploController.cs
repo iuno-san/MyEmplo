@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyEmplo.Application.MyEmplo;
 using MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo;
 using MyEmplo.Application.MyEmplo.Queries.GetAllMyEmplo;
+using MyEmplo.Application.MyEmplo.Queries.GetMyEmploByEncodedName;
 
 namespace MyEmplo.MVC.Controllers
 {
@@ -25,6 +26,13 @@ namespace MyEmplo.MVC.Controllers
         {
             return View();
         }
+
+        [Route("MyEmplo/{encodedName}/Details")]
+        public async  Task<IActionResult> Details(string encodedName)
+        {
+            var dto = await _mediator.Send(new GetMyEmploByEncodedNameQuery(encodedName));
+            return View(dto);
+        } 
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateMyEmploCommand command)
