@@ -38,6 +38,7 @@ namespace MyEmplo.Infrastructure.Seeders
                         Discord = "john_doe#1234", // Nazwa użytkownika na Discord
                         About = "I deal with various aspects of programming, especially interested in modern web technologies." // opis pracownika
                     };
+                    John.EncodeName();
 
                     _dbContext.Add(John);
                     await _dbContext.SaveChangesAsync();

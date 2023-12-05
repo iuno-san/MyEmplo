@@ -22,6 +22,7 @@ namespace MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo
         public async Task<Unit> Handle(CreateMyEmploCommand request, CancellationToken cancellationToken)
         {
             var myEmplo = _mapper.Map<Domain.Entities.MyEmplo>(request);
+            myEmplo.EncodeName();
 
             await _myEmploRepository.Create(myEmplo);
 

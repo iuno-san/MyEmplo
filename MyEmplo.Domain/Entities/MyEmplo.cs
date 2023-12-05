@@ -22,6 +22,8 @@ namespace MyEmplo.Domain.Entities
         public string? BankAccountNumber { get; set; }
         public string? Skype { get; set; }
         public string? Discord { get; set; }
+        public string EncodedName { get; set; } = default!;
+        public void EncodeName() => EncodedName = FullName.ToLower().Replace(" ", "-");
 
     }
 }
