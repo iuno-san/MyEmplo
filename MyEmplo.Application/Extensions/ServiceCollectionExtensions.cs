@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.Extensions.DependencyInjection;
 using MyEmplo.Application.Mappings;
+using MyEmplo.Application.MyEmplo;
 using MyEmplo.Application.Services;
 using MyEmplo.Domain.Interfaces;
 using System;
@@ -17,6 +20,10 @@ namespace MyEmplo.Application.Extensions
             services.AddScoped<IMyEmploService, MyEmploService>();
 
             services.AddAutoMapper(typeof(MyEmploMappingProfile));
+
+            services.AddValidatorsFromAssemblyContaining<MyEmploDtoValidator>()
+                   .AddFluentValidationAutoValidation()
+                   .AddFluentValidationClientsideAdapters();
         }
     }
 }

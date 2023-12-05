@@ -14,7 +14,7 @@ namespace MyEmplo.Application.Services
         private readonly IMyEmploRepository _myEmploRepository;
         private readonly IMapper _mapper;
 
-        public MyEmploService(IMyEmploRepository myEmploRepository, Mapper mapper)
+        public MyEmploService(IMyEmploRepository myEmploRepository, IMapper mapper)
         {
             _myEmploRepository = myEmploRepository;
             _mapper = mapper;

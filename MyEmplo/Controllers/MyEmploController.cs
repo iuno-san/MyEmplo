@@ -21,6 +21,11 @@ namespace MyEmplo.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(MyEmploDto myEmplo)
         {
+            if(!ModelState.IsValid)
+            {
+                return View(myEmplo);
+            }
+
             await _myEmploService.Create(myEmplo);
             return RedirectToAction(nameof(Create));
         }
