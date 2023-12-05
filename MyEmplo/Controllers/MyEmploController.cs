@@ -1,5 +1,6 @@
 ﻿using MyEmplo.Application.Services;
 using Microsoft.AspNetCore.Mvc;
+using MyEmplo.Application.MyEmplo;
 
 namespace MyEmplo.MVC.Controllers
 {
@@ -18,7 +19,7 @@ namespace MyEmplo.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Domain.Entities.MyEmplo myEmplo)
+        public async Task<IActionResult> Create(MyEmploDto myEmplo)
         {
             await _myEmploService.Create(myEmplo);
             return RedirectToAction(nameof(Create));

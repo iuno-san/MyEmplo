@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MyEmplo.Application.Mappings;
 using MyEmplo.Application.Services;
 using MyEmplo.Domain.Interfaces;
 using System;
@@ -14,6 +15,8 @@ namespace MyEmplo.Application.Extensions
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IMyEmploService, MyEmploService>();
+
+            services.AddAutoMapper(typeof(MyEmploMappingProfile));
         }
     }
 }
