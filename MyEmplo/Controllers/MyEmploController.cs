@@ -13,6 +13,12 @@ namespace MyEmplo.MVC.Controllers
             _myEmploService = myEmploService;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var myEmplos = await _myEmploService.GetAll();
+            return View(myEmplos);
+        }
+
         public IActionResult Create()
         {
             return View();

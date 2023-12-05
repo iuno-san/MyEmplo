@@ -13,6 +13,8 @@ namespace MyEmplo.Application.Mappings
         public MyEmploMappingProfile()
         {
             CreateMap<MyEmploDto, Domain.Entities.MyEmplo>();
+
+            CreateMap<Domain.Entities.MyEmplo, MyEmploDto>();
         }
     }
 }

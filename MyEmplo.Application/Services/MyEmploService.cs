@@ -26,5 +26,13 @@ namespace MyEmplo.Application.Services
 
             await _myEmploRepository.Create(myEmplo);
         }
+
+        public async Task<IEnumerable<MyEmploDto>> GetAll()
+        {
+            var myEmplos = await _myEmploRepository.GetAll();
+            var dtos = _mapper.Map<IEnumerable<MyEmploDto>>(myEmplos);
+
+            return dtos;
+        }
     }
 }

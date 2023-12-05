@@ -9,5 +9,6 @@ namespace MyEmplo.Domain.Interfaces
     public interface IMyEmploRepository
     {
         Task Create(Domain.Entities.MyEmplo myEmplo);
+        Task<IEnumerable<Domain.Entities.MyEmplo>> GetAll();
     }
 }

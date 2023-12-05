@@ -5,5 +5,6 @@ namespace MyEmplo.Application.Services
     public interface IMyEmploService
     {
         Task Create(MyEmploDto myEmplo);
+        Task<IEnumerable<MyEmploDto>> GetAll();
     }
 }

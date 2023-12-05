@@ -1,4 +1,5 @@
-﻿using MyEmplo.Domain.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using MyEmplo.Domain.Interfaces;
 using MyEmplo.Infrastructure.Persistance;
 using System;
 using System.Collections.Generic;
@@ -22,5 +23,8 @@ namespace MyEmplo.Infrastructure.Repositories
             _dbContext.Add(myEmplo);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<Domain.Entities.MyEmplo>> GetAll()
+        => await _dbContext.MyEmplos.ToListAsync();
     }
 }
