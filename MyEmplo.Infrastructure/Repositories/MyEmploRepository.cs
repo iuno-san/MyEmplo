@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyEmplo.Domain.Interfaces;
 using MyEmplo.Infrastructure.Persistance;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyEmplo.Infrastructure.Repositories
 {
@@ -17,6 +12,9 @@ namespace MyEmplo.Infrastructure.Repositories
         {
             _dbContext = dbContext;
         }
+
+        public Task Commit()
+        => _dbContext.SaveChangesAsync();
 
         public async Task Create(Domain.Entities.MyEmplo myEmplo)
         {

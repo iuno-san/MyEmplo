@@ -1,10 +1,6 @@
-﻿using AutoMapper;
+﻿using MyEmplo.Application.MyEmplo.Commands.EditMyEmplo;
+using AutoMapper;
 using MyEmplo.Application.MyEmplo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyEmplo.Application.Mappings
 {
@@ -15,6 +11,8 @@ namespace MyEmplo.Application.Mappings
             CreateMap<MyEmploDto, Domain.Entities.MyEmplo>();
 
             CreateMap<Domain.Entities.MyEmplo, MyEmploDto>();
+
+            CreateMap<MyEmploDto, EditMyEmploCommand>();
         }
     }
 }
