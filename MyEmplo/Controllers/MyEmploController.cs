@@ -7,6 +7,7 @@ using MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo;
 using MyEmplo.Application.MyEmplo.Commands.EditMyEmplo;
 using MyEmplo.Application.MyEmplo.Queries.GetAllMyEmplo;
 using MyEmplo.Application.MyEmplo.Queries.GetMyEmploByEncodedName;
+using MyEmplo.MVC.Extensions;
 
 namespace MyEmplo.MVC.Controllers
 {
@@ -83,7 +84,8 @@ namespace MyEmplo.MVC.Controllers
                 return View(command);
             }
 
-            await _mediator.Send(command);
+            /*await _mediator.Send(command);*/
+            this.SetNotification("success", $"Added new Employess: {command.FullName}");
             return RedirectToAction(nameof(Index));
         }
     }
