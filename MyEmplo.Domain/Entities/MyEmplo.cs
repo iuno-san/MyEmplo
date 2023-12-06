@@ -27,6 +27,5 @@ namespace MyEmplo.Domain.Entities
         public string? CreatedById { get; set; }
         public IdentityUser? CreatedBy { get; set; }
         public void EncodeName() => EncodedName = FullName.ToLower().Replace(" ", "-");
-
     }
 }

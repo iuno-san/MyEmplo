@@ -23,5 +23,6 @@ namespace MyEmplo.Application.MyEmplo
         public string? Skype { get; set; }
         public string? Discord { get; set; }
         public string? EncodedName { get; set; }
+        public bool IsEditable { get; set; }
     }
 }

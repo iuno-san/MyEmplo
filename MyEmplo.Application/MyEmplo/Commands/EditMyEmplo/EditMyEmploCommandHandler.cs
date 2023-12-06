@@ -1,5 +1,6 @@
 ﻿using MyEmplo.Domain.Interfaces;
 using MediatR;
+using MyEmplo.Application.ApplicationUser;
 
 
 namespace MyEmplo.Application.MyEmplo.Commands.EditMyEmplo
@@ -7,15 +8,25 @@ namespace MyEmplo.Application.MyEmplo.Commands.EditMyEmplo
     internal class EditMyEmploCommandHandler : IRequestHandler<EditMyEmploCommand>
     {
         private readonly IMyEmploRepository _repository;
+        private readonly IUserContext _userContext;
 
-        public EditMyEmploCommandHandler(IMyEmploRepository repository)
+        public EditMyEmploCommandHandler(IMyEmploRepository repository, IUserContext userContext)
         {
             _repository = repository;
+            _userContext = userContext;
         }
 
         public async Task<Unit> Handle(EditMyEmploCommand request, CancellationToken cancellationToken)
         {
             var myEmplo = await _repository.GetByEncodedName(request.EncodedName!);
+
+            var user = _userContext.GetCurrentUser();
+            var isEditable = user != null || myEmplo.CreatedById == user.Id;
+
+            if (!isEditable)
+            {
+                return Unit.Value;
+            }
 
             myEmplo.FullName = request.FullName;
             myEmplo.About = request.About;

@@ -18,6 +18,11 @@ namespace MyEmplo.Controllers
             return View();
         }
 
+        public IActionResult NoAccess()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

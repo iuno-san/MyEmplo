@@ -42,6 +42,11 @@ namespace MyEmplo.MVC.Controllers
 
             EditMyEmploCommand model = _mapper.Map<EditMyEmploCommand>(dto);
 
+            if (!dto.IsEditable)
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
+
             return View(model);
         }
 
