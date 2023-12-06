@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -23,6 +24,8 @@ namespace MyEmplo.Domain.Entities
         public string? Skype { get; set; }
         public string? Discord { get; set; }
         public string EncodedName { get; set; } = default!;
+        public string? CreatedById { get; set; }
+        public IdentityUser? CreatedBy { get; set; }
         public void EncodeName() => EncodedName = FullName.ToLower().Replace(" ", "-");
 
     }

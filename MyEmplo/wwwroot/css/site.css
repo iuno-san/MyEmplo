@@ -15,7 +15,7 @@ html {
 
 body {
     margin-bottom: 60px;
-    /*max-width: 1600px;*/
+    max-width: 1600px;
     margin: 0 auto;
     height: 100%;
     width: 100%;
@@ -52,8 +52,8 @@ header {
 }
 
 .nav-link.active {
-    /*color: black;
-    text-decoration: underline;*/
+    color: black;
+    text-decoration: underline;
 }
 
 h1 {
@@ -106,12 +106,12 @@ a {
     max-height: 100%;
 }
 
-/* ------- Carousel  ---------*/
+ ------- Carousel  ---------
 .card {
     position: relative;
     background: #fff;
     border-radius: 20px;
-    /*padding: 20px 60px;*/
+    padding: 20px 60px;
     box-shadow: 10px 10px 10px #ccc;
     display: flex;
     flex-direction: column;
@@ -127,7 +127,7 @@ a {
 
         .card .image img {
             width: 100%;
-            /*height: 100%;*/
+            height: 100%;
             object-fit: cover;
         }
 
@@ -235,7 +235,7 @@ a {
 }
 
 .custom-flex {
-    flex-direction: column; /* Ustawia kierunek flex na kolumnê */
+    flex-direction: column;  Ustawia kierunek flex na kolumnê 
     flex-wrap: nowrap;
 }
 
@@ -420,9 +420,9 @@ section h2 {
     margin-right: 5rem;
 }
 
-/*.custom-padding-footer{
+.custom-padding-footer{
     padding: 30px 0;
-}*/
+}
 
 .container {
     flex: 1;
@@ -468,7 +468,7 @@ section h2 {
 }
 
 
-/*Dark mode*/
+Dark mode
 
 @media (prefers-color-sheme: dark) {
     body {
@@ -478,9 +478,9 @@ section h2 {
 }
 
 
-/* Responsywnoœc */
+ Responsywnoœc 
 
-/* Domyœlna szerokoœæ dla wszystkich rozmiarów ekranu */
+ Domyœlna szerokoœæ dla wszystkich rozmiarów ekranu 
 .bookmark-icons {
     width: 24px;
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyEmplo.Infrastructure.Persistance;
 
@@ -11,9 +12,11 @@ using MyEmplo.Infrastructure.Persistance;
 namespace MyEmplo.Infrastructure.Migrations
 {
     [DbContext(typeof(MyEmploDbContext))]
-    partial class MyEmploDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231206102657_AddedCreatedById")]
+    partial class AddedCreatedById
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

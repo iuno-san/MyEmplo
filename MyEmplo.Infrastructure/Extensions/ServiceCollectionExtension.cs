@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using MyEmplo.Infrastructure.Seeders;
 using MyEmplo.Infrastructure.Repositories;
 using MyEmplo.Domain.Interfaces;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Principal;
+using MyEmplo.Application.ApplicationUser;
 
 namespace MyEmplo.Infrastructure.Extensions
 {
@@ -17,8 +20,13 @@ namespace MyEmplo.Infrastructure.Extensions
     {
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<IUserContext, UserContext>();
+
             services.AddDbContext<MyEmploDbContext>(options => options.UseSqlServer(
                 configuration.GetConnectionString("MyEmploConection")));
+
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<MyEmploDbContext>();
 
             services.AddScoped<MyEmploSeeder>();
 

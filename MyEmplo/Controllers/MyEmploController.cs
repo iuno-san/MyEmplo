@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyEmplo.Application.MyEmplo;
 using MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo;
@@ -24,11 +25,6 @@ namespace MyEmplo.MVC.Controllers
         {
             var myEmplos = await _mediator.Send(new GetAllMyEmploQuery());
             return View(myEmplos);
-        }
-
-        public IActionResult Create()
-        {
-            return View();
         }
 
         [Route("MyEmplo/{encodedName}/Details")]
@@ -62,7 +58,19 @@ namespace MyEmplo.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
+        public IActionResult Create()
+        {
+            /*if(User.Identity == null || !User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage("/Account/Login", new { area = "Identity" });
+            }*/
+
+            return View();
+        }
+
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create(CreateMyEmploCommand command)
         {
             if(!ModelState.IsValid)
