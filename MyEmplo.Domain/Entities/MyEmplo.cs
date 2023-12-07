@@ -11,7 +11,7 @@ namespace MyEmplo.Domain.Entities
     public class MyEmplo
     {
         public int Id { get; set; }
-        public string? FullName { get; set; }
+        public string FullName { get; set; } = default!;
         public string? Email { get; set; }
         public string? About { get; set; }
         public string? DateOfEmployment { get; set; }
@@ -26,6 +26,7 @@ namespace MyEmplo.Domain.Entities
         public string EncodedName { get; set; } = default!;
         public string? CreatedById { get; set; }
         public IdentityUser? CreatedBy { get; set; }
+        public List<MyEmploService> Services { get; set; } = new();
         public void EncodeName() => EncodedName = FullName.ToLower().Replace(" ", "-");
     }
 }

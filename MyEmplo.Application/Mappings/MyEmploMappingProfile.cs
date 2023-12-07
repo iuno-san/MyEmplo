@@ -18,6 +18,9 @@ namespace MyEmplo.Application.Mappings
                 opt.MapFrom(src => user != null && src.CreatedById == user.Id));
 
             CreateMap<MyEmploDto, EditMyEmploCommand>();
+
+            CreateMap<MyEmploDto, Domain.Entities.MyEmploService>()
+                .ReverseMap();
         }
     }
 }

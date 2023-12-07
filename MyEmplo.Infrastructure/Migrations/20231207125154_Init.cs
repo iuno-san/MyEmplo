@@ -162,7 +162,7 @@ namespace MyEmplo.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     About = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfEmployment = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -185,6 +185,27 @@ namespace MyEmplo.Infrastructure.Migrations
                         column: x => x.CreatedById,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Services",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MyEmploId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Services", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Services_MyEmplos_MyEmploId",
+                        column: x => x.MyEmploId,
+                        principalTable: "MyEmplos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -230,6 +251,11 @@ namespace MyEmplo.Infrastructure.Migrations
                 name: "IX_MyEmplos_CreatedById",
                 table: "MyEmplos",
                 column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Services_MyEmploId",
+                table: "Services",
+                column: "MyEmploId");
         }
 
         /// <inheritdoc />
@@ -251,10 +277,13 @@ namespace MyEmplo.Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "MyEmplos");
+                name: "Services");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "MyEmplos");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

@@ -15,12 +15,18 @@ namespace MyEmplo.Infrastructure.Persistance
 
         }   
         public DbSet<Domain.Entities.MyEmplo> MyEmplos { get; set; }
+        public DbSet<Domain.Entities.MyEmploService> Services { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Domain.Entities.MyEmplo>();
+            /*modelBuilder.Entity<Domain.Entities.MyEmplo>();*/
+
+            modelBuilder.Entity<Domain.Entities.MyEmplo>()
+                .HasMany(m => m.Services)
+                .WithOne(s => s.MyEmplo)
+                .HasForeignKey(s => s.MyEmploId);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MyEmplo.Application.MyEmplo
 {
     public class MyEmploDto
     {
-        public string? FullName { get; set; }
+        public string FullName { get; set; } = default!;
         public string? Email { get; set; }
         public string? About { get; set; }
         public string? DateOfEmployment { get; set; }

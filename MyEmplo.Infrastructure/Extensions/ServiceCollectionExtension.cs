@@ -31,6 +31,8 @@ namespace MyEmplo.Infrastructure.Extensions
             services.AddScoped<MyEmploSeeder>();
 
             services.AddScoped<IMyEmploRepository, MyEmploRepository>();
+
+            services.AddScoped<IMyEmploServiceRepository, MyEmploServiceRepository>();
         }
     }
 }

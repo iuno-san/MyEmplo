@@ -1,4 +1,35 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+const RenderMyEmploServices = (services, container) => {
+    container.empty();
 
-// Write your JavaScript code.
+    for (const service of services) {
+        container.append(
+            `<div class="card border-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header">${service.name}</div>
+          <div class="card-body">
+            <h5 class="card-title">${service.description}</h5> 
+          </div>
+        </div>`)
+    }
+}
+
+
+const LoadMyEmploServices = () => {
+    const container = $("#services")
+    const MyEmploEncodedName = container.data("encodedName");
+
+    $.ajax({
+        url: `/MyEmplo/${MyEmploEncodedName}/MyEmploService`,
+        type: 'get',
+        success: function (data) {
+            if (!data.length) {
+                container.html("Nie masz dodanych dodakowych informacji")
+            } else {
+                RenderMyEmploServices(data, container)
+            }
+        },
+        error: function () {
+            toastr["error"]("coś poszło nie tak")
+        }
+    })
+}

@@ -12,7 +12,7 @@ using MyEmplo.Infrastructure.Persistance;
 namespace MyEmplo.Infrastructure.Migrations
 {
     [DbContext(typeof(MyEmploDbContext))]
-    [Migration("20231206104050_Init")]
+    [Migration("20231207125154_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -264,6 +264,7 @@ namespace MyEmplo.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -283,6 +284,32 @@ namespace MyEmplo.Infrastructure.Migrations
                     b.HasIndex("CreatedById");
 
                     b.ToTable("MyEmplos");
+                });
+
+            modelBuilder.Entity("MyEmplo.Domain.Entities.MyEmploService", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MyEmploId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MyEmploId");
+
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -343,6 +370,22 @@ namespace MyEmplo.Infrastructure.Migrations
                         .HasForeignKey("CreatedById");
 
                     b.Navigation("CreatedBy");
+                });
+
+            modelBuilder.Entity("MyEmplo.Domain.Entities.MyEmploService", b =>
+                {
+                    b.HasOne("MyEmplo.Domain.Entities.MyEmplo", "MyEmplo")
+                        .WithMany("Services")
+                        .HasForeignKey("MyEmploId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MyEmplo");
+                });
+
+            modelBuilder.Entity("MyEmplo.Domain.Entities.MyEmplo", b =>
+                {
+                    b.Navigation("Services");
                 });
 #pragma warning restore 612, 618
         }

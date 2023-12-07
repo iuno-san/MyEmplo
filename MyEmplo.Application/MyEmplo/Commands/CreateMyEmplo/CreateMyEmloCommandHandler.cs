@@ -26,6 +26,13 @@ namespace MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo
 
         public async Task<Unit> Handle(CreateMyEmploCommand request, CancellationToken cancellationToken)
         {
+            var currentUser = _userContext.GetCurrentUser();
+
+            if (currentUser == null)
+            {
+                return Unit.Value;
+            }
+
             var myEmplo = _mapper.Map<Domain.Entities.MyEmplo>(request);
             myEmplo.EncodeName();
 

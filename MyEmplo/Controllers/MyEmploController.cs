@@ -7,6 +7,8 @@ using MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo;
 using MyEmplo.Application.MyEmplo.Commands.EditMyEmplo;
 using MyEmplo.Application.MyEmplo.Queries.GetAllMyEmplo;
 using MyEmplo.Application.MyEmplo.Queries.GetMyEmploByEncodedName;
+using MyEmplo.Application.MyEmploService.Commands;
+using MyEmplo.Application.MyEmploService.Queries.GetMyEmploServices;
 using MyEmplo.MVC.Extensions;
 
 namespace MyEmplo.MVC.Controllers
@@ -84,9 +86,31 @@ namespace MyEmplo.MVC.Controllers
                 return View(command);
             }
 
-            /*await _mediator.Send(command);*/
+            await _mediator.Send(command);
             this.SetNotification("success", $"Added new Employess: {command.FullName}");
             return RedirectToAction(nameof(Index));
         }
-    }
+
+        [HttpPost]
+        [Authorize]
+        [Route("MyEmplo/MyEmploService")]
+        public async Task<IActionResult> CreateMyEmploService(CreateMyEmploServiceCommand command)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await _mediator.Send(command);
+
+            return Ok();
+        }
+
+		[HttpGet]
+		[Route("MyEmplo/{encodedName}/MyEmploService")]
+		public async Task<IActionResult> GetMyEmploService(string encodedName)
+		{
+			var data = await _mediator.Send(new GetMyEmploServicesQuery() { EncodedName = encodedName });
+			return Ok(data);
+		}
+	}
 }
