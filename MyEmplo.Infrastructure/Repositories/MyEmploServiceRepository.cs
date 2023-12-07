@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyEmplo.Infrastructure.Repositories
 {
-    public class MyEmploServiceRepository : IMyEmploServiceRepository
+    internal class MyEmploServiceRepository : IMyEmploServiceRepository
     {
         private MyEmploDbContext _dbContext { get; }
         public MyEmploServiceRepository(MyEmploDbContext dbContext) 
