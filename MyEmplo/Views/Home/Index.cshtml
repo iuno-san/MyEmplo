@@ -1,25 +1,135 @@
 ﻿@{
-    ViewData["Title"] = "Zbiór informacji wszystkich twoich pracowników";
+    ViewData["Title"] = "Your personal assistant for employee management!";
 }
 
-<!--**************** MAIN CONTENT START ****************-->
-<main>
-    <div class="pt-lg-5">
-        <div class="row align-items-center g-5 d-flex">
-            <div class="mt-5 d-flex">
-				<div class="text-center me-5 w-100">
-                    <h1 class="h1-design">
-                        Dane twoich pracowników zawsze pod ręką
-                    </h1> 
-                    <p class="p-design mt-5">
-                        Z MyEmplo masz pełną kontrolę nad danymi swoich pracowników. Dodawaj nowych członków zespołu i sprawdzaj wszystkie istotne informacje o nich szybko i wygodnie, dzięki intuicyjnemu interfejsowi i zaawansowanym funkcjom zarządzania."
+    <main id="main">
 
-                        Funkcje aplikacji
-                    </p>
-                </div>
-                <div class="text-center mt-1rem w-100">
-                    <img class="img-100" src="/img/others/Baner_main.png" alt="" />
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+
+                <div class="row justify-content-between">
+                    <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
+                        <img src="/img/others/Baner_main.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6 pt-5">
+                    <h1 class="h1-design">Your personal assistant for employee management!</h1>
+                        <p class="p-design">
+                         <b>MyEmplo</b> Enables easy addition, update and quick access to key information about employees. With secure login, intuitive interface and notification feature, MyEmplo revolutionizes the way you manage your team. Give your company an advantage with quick and effective staff management.
+                        </p>
+                    <div>
+                        <h3 class="brown-color">Because employee management can be cool!</h3>
+                    </div>
+                    <a asp-controller="MyEmplo" asp-action="Index"><button class="custom-btn btn-15 mt-5"><span>Start Now</span></button></a>
+                    </div>
                 </div>
             </div>
-        </div>
-</main>
+        </section><!-- End About Section -->
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services section-bg">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Services</h2>
+                    <p>Check out the great services we offer</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch" >
+                        <div class="icon-box">
+                            <div class="icon"><img src="/img/icons/network.png" class="service-icon-custom"></div>
+                        <h4 class="title"><a href="">Employee Management</a></h4>
+                        <p class="description">We enable easy addition, updating, and quick access to employee information. Your team's data is always at your fingertips.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                        <div class="icon-box">
+                        <div class="icon"><img src="/img/icons/server.png" class="service-icon-custom"></div>
+                        <h4 class="title"><a href="">Data Security</a></h4>
+                        <p class="description">We guarantee the security of your data through a robust login system and advanced information protection mechanisms.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                        <div class="icon-box">
+                        <div class="icon"><img src="/img/icons/interface.png" class="service-icon-custom"></div>
+                        <h4 class="title"><a href="">Intuitive Interface</a></h4>
+                        <p class="description">Our intuitive user interface makes personnel management easier than ever. Save time and increase your efficiency.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch" >
+                        <div class="icon-box">
+                        <div class="icon"><img src="/img/icons/technical-support.png" class="service-icon-custom"></div>
+                        <h4 class="title"><a href="">Technical Support</a></h4>
+                        <p class="description">Our technical support team is at your disposal to provide comprehensive assistance and solutions at every stage of using MyEmplo.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+        <!-- ======= F.A.Q Section ======= -->
+        <section id="faq" class="faq section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>F.A.Q</h2>
+                    <p>Frequently Asked Questions</p>
+                </div>
+
+                <ul class="faq-list" data-aos="fade-up" data-aos-delay="100">
+
+                    <li>
+                    <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">How can I add a new employee to the MyEmplo system? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                            To add a new employee, log in to your account, go to the "Employee Management" tab, and use the "Add New Employee" option. Fill in the necessary information, and the new employee profile will appear in the system.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                    <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Are my data secure in the MyEmplo system? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                            Yes, we prioritize the security of your data. MyEmplo utilizes advanced security measures, including a robust login system and data encryption, to ensure the confidentiality and integrity of information.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                    <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Can I customize employee data in the system? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                            Certainly! MyEmplo allows easy updating of employee data. After logging in, go to the employee's profile and make the necessary modifications.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                    <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">How can I get technical support from MyEmplo? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                            If you need technical assistance, use the "Technical Support" tab in the MyEmplo application. Our team of specialists is ready to provide help and answer your questions.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                    <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Can I use MyEmplo on different devices? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                            Yes, MyEmplo is accessible on various devices. Access the application through a web browser on a desktop computer, laptop, tablet, or smartphone.
+                            </p>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </section><!-- End F.A.Q Section -->
+        
+        

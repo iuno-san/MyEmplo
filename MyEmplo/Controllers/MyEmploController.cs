@@ -77,7 +77,7 @@ namespace MyEmplo.MVC.Controllers
             return View();
         }
 
-        [HttpPost]
+       /* [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create(CreateMyEmploCommand command)
         {
@@ -89,7 +89,7 @@ namespace MyEmplo.MVC.Controllers
             await _mediator.Send(command);
             this.SetNotification("success", $"Added new Employess: {command.FullName}");
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
         [HttpPost]
         [Authorize]

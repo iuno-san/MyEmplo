@@ -33,3 +33,13 @@ const LoadMyEmploServices = () => {
         }
     })
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var navbarToggle = document.querySelector('.navbar-toggle');
+    var navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', function () {
+        navbarToggle.classList.toggle('active');
+        navbarMenu.classList.toggle('active');
+    });
+});

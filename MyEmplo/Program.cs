@@ -3,6 +3,8 @@ using MyEmplo.Infrastructure.Persistance;
 using MyEmplo.Infrastructure.Extensions;
 using MyEmplo.Infrastructure.Seeders;
 using MyEmplo.Application.Extensions;
+using Microsoft.AspNetCore.Identity;
+using MyEmplo.MVC.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

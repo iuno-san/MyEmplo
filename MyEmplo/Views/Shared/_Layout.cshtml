@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyEmplo</title>
+    <title>MyEmplo - @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MyEmplo.styles.css" asp-append-version="true" />
@@ -21,26 +21,29 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyEmplo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark @(controller == "Home" && action == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark @(controller == "Home" && action == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark @(controller == "MyEmplo" && action == "Index" ? "active" : "")" asp-area="" asp-controller="MyEmplo" asp-action="Index">Moi Pracownicy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3">
+            <div class="container-fluid mx-4">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="logo-img" src="~/img/icons/Logo.png"> <span class="logo-title-first">My</span><span class="logo-title-second">Emplo</span></a>
+                <div class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="navbar-menu">
+                    <div class="centered-box">
+                        <ul class="navbar-nav navbar-navigation flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark @(controller == "Home" && action == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark @(controller == "MyEmplo" && action == "Index" ? "active" : "")" asp-area="" asp-controller="MyEmplo" asp-action="Index">Employee Management</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark @(controller == "Home" && action == "Contact" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                            </li>
+                            <partial name="_LoginPartial" />
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -51,11 +54,26 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - MyEmplo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <div class="mt-0">
+        <footer class="footer text-muted mt-1">
+            <div class="line"></div>
+            <div class="container custom-padding-footer text-center mt-5">
+                <div class="footer-logo">
+                    <span class="logo-title-first-white">My</span><span class="logo-title-second">Emplo</span>
+                </div>
+                <div class="footer-links mt-3">
+                    <ul>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="MyEmplo" asp-action="Index">Employee Management</a>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </ul>
+                </div>
+                <div class="footer-copyright mt-3">
+                    © 2023  MyEmplo. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/toastr.js/toastr.min.js"></script>
