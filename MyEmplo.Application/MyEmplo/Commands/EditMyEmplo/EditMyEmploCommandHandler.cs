@@ -37,9 +37,9 @@ namespace MyEmplo.Application.MyEmplo.Commands.EditMyEmplo
             myEmplo.Country = request.Country;
             myEmplo.Address = request.Address;
             myEmplo.PhoneNumber = request.PhoneNumber;
-            myEmplo.BankAccountNumber = request.BankAccountNumber;
+            myEmplo.WhatsApp = request.WhatsApp;
             myEmplo.Skype = request.Skype;
-            myEmplo.Discord = request.Discord;
+            myEmplo.Messenger = request.Messenger;
 
             await _repository.Commit();
 

@@ -33,9 +33,9 @@ namespace MyEmplo.Infrastructure.Seeders
                         Country = "Polska", // Kraj
                         Address = "Kraków, długa 12",
                         PhoneNumber = "123-456-7890", // Numer telefonu
-                        BankAccountNumber = "123456789", // Numer konta bankowego
+                        WhatsApp = "123456789", // Numer konta bankowego
                         Skype = "john.doe.skype", // Nazwa użytkownika na Skype
-                        Discord = "john_doe#1234", // Nazwa użytkownika na Discord
+                        Messenger = "john_doe#1234", // Nazwa użytkownika na Messenger
                         About = "I deal with various aspects of programming, especially interested in modern web technologies." // opis pracownika
                     };
                     John.EncodeName();

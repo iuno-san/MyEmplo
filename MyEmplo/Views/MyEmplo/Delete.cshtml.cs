@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MyEmplo.MVC.Areas.Identity.Pages
+namespace MyEmplo.MVC.Views.MyEmplo
 {
-    public class _ViewStartModel : PageModel
+    public class DeleteModel : PageModel
     {
         public void OnGet()
         {

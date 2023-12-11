@@ -27,7 +27,10 @@ namespace MyEmplo.MVC.Controllers
         public async Task<IActionResult> Index()
         {
             var myEmplos = await _mediator.Send(new GetAllMyEmploQuery());
-            return View(myEmplos);
+
+            var filteredMyEmplos = myEmplos.Where(e => e.IsEditable);
+
+            return View(filteredMyEmplos);
         }
 
         [Route("MyEmplo/{encodedName}/Details")]
@@ -63,7 +66,13 @@ namespace MyEmplo.MVC.Controllers
             }
 
             await _mediator.Send(command);
+            this.SetNotification("success", $"Your new details saved for: {command.FullName}");
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
         }
 
         [Authorize]
@@ -77,11 +86,11 @@ namespace MyEmplo.MVC.Controllers
             return View();
         }
 
-       /* [HttpPost]
+        [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create(CreateMyEmploCommand command)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(command);
             }
@@ -89,9 +98,10 @@ namespace MyEmplo.MVC.Controllers
             await _mediator.Send(command);
             this.SetNotification("success", $"Added new Employess: {command.FullName}");
             return RedirectToAction(nameof(Index));
-        }*/
+        }
 
-        [HttpPost]
+
+        /*[HttpPost]
         [Authorize]
         [Route("MyEmplo/MyEmploService")]
         public async Task<IActionResult> CreateMyEmploService(CreateMyEmploServiceCommand command)
@@ -111,6 +121,6 @@ namespace MyEmplo.MVC.Controllers
 		{
 			var data = await _mediator.Send(new GetMyEmploServicesQuery() { EncodedName = encodedName });
 			return Ok(data);
-		}
-	}
+		}*/
+    }
 }

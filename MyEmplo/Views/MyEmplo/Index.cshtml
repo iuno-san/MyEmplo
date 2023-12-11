@@ -7,6 +7,7 @@
 <div class="d-flex">
 	<div>
         <h1>My Employees</h1>
+		<span class="text-muted">Click the red button and add new employee</span>
     </div>
     <div class="ms-auto">
         <a asp-action="Create">
@@ -20,21 +21,115 @@
 </div>
 
 <div class="row mt-3">
-    @foreach (var item in Model)
-    {
-        <div class="card m-3 shadow-sm" style="width: 18rem; border-radius: 15px; overflow: hidden;">
-            <img class="avatar-img" src="/img/others/Baner_man.png" class="card-img-top" alt="Image">
-            <div class="card-body">
-                <h5 class="card-title">@item.FullName</h5>
-                <h6 class="card-subtitle mb-2 card-custom-text">@item.PhoneNumber</h6>
-                <p class="card-custom-text">@item.Email</p>
-                <p class="card-custom-text">@item.Role</p>
-                <a class="d-grid" asp-controller="MyEmplo" asp-action="Details" asp-route-encodedName="@item.EncodedName"><button class="btn-outline-dark button">Details</button></a>
-                @if (item.IsEditable)
+    <div class="form-group pull-right search-bar">
+        <button onclick="focusSearchInput()">
+            <img src="/img/icons/loupe.png" alt="" />
+        </button>
+        <input id="searchInput" type="text" class="search form-control" placeholder="Search for your employee..">
+    </div>
+    <span class="counter pull-right"></span>
+    <div>
+        <table class="table table-hover results">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Worker</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Employment type</th>
+                    <th scope="col">PhoneNumber</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                <tr class="warning no-result">
+                    <td colspan="5"><i class="fa fa-warning"></i> No result</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var (index, item) in Model.Select((value, i) => (i + 1, value)))
                 {
-                    @* <a class="btn btn-outline-secondary" asp-controller="MyEmplo" asp-action="Edit" asp-route-encodedName="@item.EncodedName">Edit</a> *@
+                    <tr>
+                        <td><div class="mt-2"><span>@index</span></div></td>
+                        <td>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <div class="avatar-img avatar-sm me-3">
+                                    <img id="profile-picture-edit" class="rounded-circle w-100" src="/img/icons/profile1.png" alt="avatar" />
+                                </div>
+
+                                <div class="d-flex flex-column">
+                                    <a class="text-body text-truncate" asp-controller="MyEmplo" asp-action="Details" asp-route-encodedName="@item.EncodedName">
+                                        <span class="fw-medium">@item.FullName</span>
+                                    </a>
+                                    <small class="text-muted">@item.Email</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mt-2">
+                                <span>
+                                    <img class="small-icon me-2" src="/img/icons/role.png" alt="" />
+                                    @item.Role
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mt-2">
+                                <span>
+                                    <img class="small-icon me-2" src="/img/icons/time.png" alt="" />
+                                    @item.TypeOfEmployment
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mt-2">
+                                <span>
+                                    <img class="small-icon me-2" src="/img/icons/phone.png" alt="" />
+                                    @item.PhoneNumber
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mt-2">
+                                @if (item.IsEditable)
+                                {
+                                    <a asp-controller="MyEmplo" asp-action="Edit" asp-route-encodedName="@item.EncodedName">
+                                        <img class="actions-icon me-2" src="/img/icons/edit.png" alt="" />
+                                    </a>
+                                }
+                                <a asp-controller="MyEmplo" asp-action="Delete" asp-route-encodedName="@item.EncodedName">
+                                    <img class="actions-icon me-2" src="/img/icons/delete.png" alt="" />
+                                </a>
+                                <a asp-controller="MyEmplo" asp-action="Details" asp-route-encodedName="@item.EncodedName">
+                                    <img class="actions-icon me-2" src="/img/icons/view.png" alt="" />
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
                 }
-            </div>
-        </div>
-    }
+            </tbody>
+        </table>
+    </div>
 </div>
+<div class="mt-5 custom-margin-minus-img text-center">
+	<img class="img-100" src="img/others/Baner_employee.png" alt="" />
+</div>
+
+<script>
+    function focusSearchInput() {
+        var searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.focus();
+        }
+    }
+</script>
+
+<script>
+    function saveChanges() {
+        // Pobierz aktualnie wybrane zdjęcie
+        const selectedImageSrc = document.getElementById('profile-picture').src;
+
+        // Zaktualizuj zdjęcie na stronie edycji
+        document.getElementById('profile-picture-edit').src = selectedImageSrc;
+
+        // Tutaj możesz dodać inne operacje, które chcesz wykonać po zapisaniu zmian
+        // Na przykład, możesz wysłać żądanie do serwera, aby zapisać zmiany w bazie danych itp.
+    }
+</script>

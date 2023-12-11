@@ -1,12 +1,106 @@
 ﻿@using MyEmplo.Application.MyEmplo.Commands.CreateMyEmplo;
 @model CreateMyEmploCommand
 
-<h1>Dodaj swojego pracownika</h1>
-<h2>Wpisz dane swojego pracownika</h2>
+@{
+    ViewData["Title"] = "Add your new employee";
+}
 
-<hr />
+<h1>@ViewData["Title"]</h1>
+<p class="text-muted">Enter your employee's details</p>
 
-<div class="row">
+<div class="container-xl px-4 mt-4">
+    <div class="text-center">
+		<img class="img-100" src="/img/others/Baner_add_employee.png" alt="" />
+    </div>
+        <!-- Account details card-->
+        <div class="mb-4 text-center">
+        <div>
+            <form class="row" action="/MyEmplo/Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="col-md-12 text-danger mb-3"></div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" type="text" placeholder="John Doe" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" type="text" placeholder="john.doe@example.com" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="About" class="control-label">Description</label>
+                    <input asp-for="About" type="text" placeholder="Enter about your employee information" class="form-control" />
+                    <span asp-validation-for="About" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="DateOfEmployment" class="control-label"></label>
+                    <input asp-for="DateOfEmployment" type="text" placeholder="2023-01-01" class="form-control" />
+                    <span asp-validation-for="DateOfEmployment" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="TypeOfEmployment" class="control-label"></label>
+                    <input asp-for="TypeOfEmployment" type="text" placeholder="Full-time" class="form-control" />
+                    <span asp-validation-for="TypeOfEmployment" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="Role" class="control-label"></label>
+                    <input asp-for="Role" type="text" placeholder="Software Engineer" class="form-control" />
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" type="text" placeholder="United States" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" type="text" placeholder="123 Main St, City, Country" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" type="text" placeholder="+1 (555) 123-4567" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="WhatsApp" class="control-label"></label>
+                    <input asp-for="WhatsApp" type="text" placeholder="+49 69 1234 5678" class="form-control" />
+                    <span asp-validation-for="WhatsApp" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="Skype" class="control-label"></label>
+                    <input asp-for="Skype" type="text" placeholder="john.doe_skype" class="form-control" />
+                    <span asp-validation-for="Skype" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3 mt-3 text-start">
+                    <label asp-for="Messenger" class="control-label"></label>
+                    <input asp-for="Messenger" type="text" placeholder="john doe" class="form-control" />
+                    <span asp-validation-for="Messenger" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <input type="submit" value="Add your employee" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+@* <div class="row">
     <div class="col-md-4">
         <form action="/MyEmplo/Create" method="post">
             <div class="form-group mb-3">
@@ -50,16 +144,16 @@
                 <input class="form-control" type="Address" asp-for="Address">
             </div>
             <div class="form-group mb-3">
-                <label class="control-label" asp-for="BankAccountNumber">BankAccountNumber</label>
-                <input class="form-control" type="text" asp-for="BankAccountNumber">
+                <label class="control-label" asp-for="WhatsApp">WhatsApp</label>
+                <input class="form-control" type="text" asp-for="WhatsApp">
             </div>
             <div class="form-group mb-3">
                 <label class="control-label" asp-for="Skype">Skype</label>
                 <input class="form-control" type="text" asp-for="Skype">
             </div>
             <div class="form-group mb-3">
-                <label class="control-label" asp-for="Discord">Discord</label>
-                <input class="form-control" type="text" asp-for="Discord">
+                <label class="control-label" asp-for="Messenger">Messenger</label>
+                <input class="form-control" type="text" asp-for="Messenger">
             </div>
 
 
@@ -68,7 +162,7 @@
             </div>
         </form>
     </div>
-</div>
+</div> *@
 
 @section Scripts {
     @{

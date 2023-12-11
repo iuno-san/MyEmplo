@@ -12,8 +12,8 @@ using MyEmplo.Infrastructure.Persistance;
 namespace MyEmplo.Infrastructure.Migrations
 {
     [DbContext(typeof(MyEmploDbContext))]
-    [Migration("20231207125154_Init")]
-    partial class Init
+    [Migration("20231211204929_FinishInit")]
+    partial class FinishInit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,9 +241,6 @@ namespace MyEmplo.Infrastructure.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BankAccountNumber")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
@@ -251,9 +248,6 @@ namespace MyEmplo.Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DateOfEmployment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discord")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -267,6 +261,9 @@ namespace MyEmplo.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Messenger")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -277,6 +274,9 @@ namespace MyEmplo.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeOfEmployment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WhatsApp")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

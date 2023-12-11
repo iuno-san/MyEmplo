@@ -1,97 +1,91 @@
 ﻿@model MyEmplo.Application.MyEmplo.MyEmploDto
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = @Model.FullName + " | Details";
 }
 
 <h1>@Model.FullName Details</h1>
+<p class="text-muted">Check your employee's details</p>
 
-<div>
-    <h4>MyEmploDto</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.About)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.About)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateOfEmployment)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateOfEmployment)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TypeOfEmployment)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TypeOfEmployment)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Role)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BankAccountNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BankAccountNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Skype)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Skype)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Discord)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Discord)
-        </dd>
-    </dl>
+<div class="row" >
+    <div class="col-12" >
+        <div class="card-custom mb-4" >
+            <div class="user-profile-header-banner" >
+                <img class="img-100 rounded-top" src="/img/others/Baner_banerphoto1.jpg" alt="Banner image">
+            </div>
+            <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4" >
+                <div class="flex-shrink-0 mt-n2 mt-3 mx-sm-0 mx-auto" >
+                    <img src="/img/icons/profile1.png" alt="user image" class="d-block h-auto ms-0 ms-sm-4 rounded user-profile-img">
+                </div>
+                <div class="flex-grow-1 mt-3 mt-sm-4" >
+                    <div class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4" >
+                        <div class="user-profile-info" >
+                            <h4>@Html.DisplayFor(model => model.FullName)</h4>
+                            <ul class="list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2">
+                                <li class="list-inline-item fw-medium">
+                                    <img class="small-icon" src="/img/icons/rocket.png"> @Html.DisplayFor(model => model.Role)
+                                </li>
+                                <li class="list-inline-item fw-medium">
+                                    <img class="small-icon" src="/img/icons/marker.png"> @Html.DisplayFor(model => model.Address)
+                                </li>
+                                <li class="list-inline-item fw-medium">
+                                    <img class="small-icon" src="/img/icons/time.png"> @Html.DisplayFor(model => model.DateOfEmployment)
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="" class="btn btn-warning text-nowrap pt-2">
+                            <img class="small-icon me-2" src="/img/icons/following.png">Connected
+                        </a>
+                    </div>
+                </div>
+            </div>
+			<hr />
+            <div class="d-flex-custom">
+                <div class="mb-4 col-6 col-sm-6 ms-5">
+                    <div class="card-body text-start">
+                        <small class="text-muted text-uppercase ms-2">About</small>
+                        <ul class="list-unstyled mb-4 mt-3">
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/user.png"><span class="fw-medium mx-2">Full Name:</span> <span>@Html.DisplayFor(model => model.FullName)</span></li>
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/check.png"><span class="fw-medium mx-2">Status:</span> <span>Active</span></li>
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/star.png"><span class="fw-medium mx-2">Employment Type:</span> <span>@Html.DisplayFor(model => model.TypeOfEmployment)</span></li>
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/marker.png"><span class="fw-medium mx-2">Country:</span> <span>@Html.DisplayFor(model => model.Country)</span></li>
+                        </ul>
+                        <small class="text-muted text-uppercase ms-2">Contacts</small>
+                        <ul class="list-unstyled mb-4 mt-3">
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/phone.png"><span class="fw-medium mx-2">Phone:</span> <span>@Html.DisplayFor(model => model.PhoneNumber)</span></li>
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/envelope.png"><span class="fw-medium mx-2">Email:</span> <span>@Html.DisplayFor(model => model.Email)</span></li>
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/skype.png"><span class="fw-medium mx-2">Skype:</span> <span>@Html.DisplayFor(model => model.Skype)</span></li>
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/whatsapp.png"><span class="fw-medium mx-2">WhatsApp:</span> <span>@Html.DisplayFor(model => model.WhatsApp)</span></li>
+                            <li class="d-flex align-items-center mb-3"><img class="small-icon" src="/img/icons/facebook.png"><span class="fw-medium mx-2">Messenger:</span> <span>@Html.DisplayFor(model => model.Messenger)</span></li>
+                        </ul>
+                        <small class="text-muted text-uppercase ms-2">Description</small>
+                        <ul class="list-unstyled mb-4 mt-3">
+                            <li class="align-items-center mb-3"><img class="small-icon" src="/img/icons/edit1.png"><span class="fw-medium mx-2">Description:</span> <span>@Html.DisplayFor(model => model.About)</span></li>
+                        </ul>
+                        @* <small class="text-muted text-uppercase ms-2">Teams</small>
+                        <ul class="list-unstyled mt-3 mb-0">
+                            <li class="d-flex align-items-center mb-3">
+                                <img class="small-icon" src="/img/icons/check.png">
+                                <div class="d-flex flex-wrap" ><span class="fw-medium me-2">Backend Developer</span><span>(126 Members)</span></div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <img class="small-icon" src="/img/icons/check.png">
+                                <div class="d-flex flex-wrap" ><span class="fw-medium me-2">React Developer</span><span>(98 Members)</span></div>
+                            </li>
+                        </ul> *@
+                    </div>
+                    <div class="text-start">
+                        @if (Model.IsEditable)
+                        {
+                            <a class="btn btn-warning me-3" asp-controller="MyEmplo" asp-action="Edit" asp-route-encodedName="@Model.EncodedName">Edit</a>
+                        }
+                        <a class="btn btn-primary blue" asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 big-margin-top mb-3">
+                    <img class="img-100" src="/img/others/Baner_email.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-<div>
-    @if (Model.IsEditable)
-    {
-        <a class="btn btn-outline-secondary" asp-controller="MyEmplo" asp-action="Edit" asp-route-encodedName="@Model.EncodedName">Edit</a>
-    }
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@* <h3>Services:</h3>
-
-<div id="services" class="row" data-encoded-name="@Model.EncodedName"></div>
-
-@section Scripts {
-    <script src="~/js/MyEmplo/Details.js"></script>
-} *@
