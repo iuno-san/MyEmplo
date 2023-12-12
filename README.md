@@ -8,19 +8,19 @@
 ## 📱 Responsiveness and Accessibility:
 - The application is optimized for responsiveness, allowing seamless operation on various devices.<br><br>
 
-## 🎨 Intuitive Interface:
+## ⚡️ Intuitive Interface:
 - The user interface is designed for simplicity, contributing to an intuitive user experience without the need for extensive training.<br><br>
 
 ## 🧑‍💼 Employee Management:
 - The application enables efficient addition, editing, and removal of employee data, streamlining the personnel management process.<br><br>
 
-## 🧹 Clean Architecture:
+## 🌱 Clean Architecture:
 - The application is developed based on clean architecture, indicating well-organized code that is easy to maintain.<br><br>
 
-## ✨ SOLID Principles:
+## ⭐️ SOLID Principles:
 - The application adheres to *SOLID* principles, demonstrating a professional approach to programming, resulting in flexibility and ease of extending functionality.<br><br><br>
 
-# What I did 🛠️
+# What I did 🛠️⚡
 
 - Created a comprehensive application using modern technologies.
 - Implemented a secure login system and account management using *Identity*.
@@ -29,13 +29,23 @@
 - Implemented features for adding, editing, and removing employees, aligning with the main purpose of the application.
 - Utilized *SOLID* principles, showcasing a professional programming approach.<br><br><br>
 
-# What I Learned 💪 
+# What I Learned 🍃 
 
 - Effectively applied *ASP.NET Core MVC* technologies.
 - Implemented a secure login system and account management.
 - Designed a responsive user interface.
 - Developed an application adhering to clean architecture principles and *SOLID* patterns.
-- Efficiently managed employee data in a business application.
+- Efficiently managed employee data in a business application.<br><br><br>
 
-# Gallery of MyEmplo
-
+# Gallery of MyEmplo 🌌
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/servicee-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/faqq-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/index-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/create-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/edit-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/details-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/search-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/contact-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/account-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/login-site.png" /></a>
+<a href="#"><img width="1000" src="https://raw.githubusercontent.com/iuno-san/MyEmplo/master/MyEmplo/wwwroot/img/site/register-site.png" /></a>
