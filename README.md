@@ -41,6 +41,8 @@ MyEmplo is a modern web application built on the ASP.NET Core MVC framework, des
 
 # 🔥Application Structure
 ```
+MyEmplo
+|
 |-- MyEmplo.Application
 |   |-- ApplicationUser
 |   |   |-- CurrentUser.cs
@@ -177,4 +179,150 @@ MyEmplo is a modern web application built on the ASP.NET Core MVC framework, des
 
 ## 🌻 Feedback
 
-If you have any feedback, please reach out to us at ignacysan27@gmail.com
+If you have any feedback, please reach out to us at ignacysan27@gmail.com<br><br>
+
+# 🎋Full App Structure
+```
+MyEmplo
+|
+|-- MyEmplo.Application
+|   | 
+|   |-- ApplicationUser
+|   |   |-- CurrentUser.cs
+|   |   |-- UserContext.cs
+|   |   
+|   |-- Extensions
+|   |   |-- ServiceCollectionExtensions.cs
+|   | 
+|   |-- Mappings
+|   |   |-- MyEmploMappingProfile.cs
+|   | 
+|   |-- MyEmplo
+|   |   |-- Commands
+|   |   |  |-- CreateMyEmplo
+|   |   |  |  |-- CreateMyEmloCommandHandler.cs
+|   |   |  |  |-- CreateMyEmploCommand.cs
+|   |   |  |  |-- CreateMyEmploCommandValidator.cs
+|   |   |  |  |
+|   |   |  |-- EditMyEmplo
+|   |   |  |  |-- EditMyEmploCommand.cs
+|   |   |  |  |-- EditMyEmploCommandHandler.cs
+|   |   |  |  |-- EditMyEmploCommandValidator.cs
+|   |   |
+|   |   |-- Queries
+|   |   |  |-- GetAllMyEmplo
+|   |   |  |  |-- GetAllMyEmploQuery.cs
+|   |   |  |  |-- GetAllMyEmploQueryHandler.cs
+|   |   |  |  |
+|   |   |  |-- GetMyEmploByEncodedName
+|   |   |  |  |-- GetMyEmploByEncodedNameQuery.cs
+|   |   |  |  |-- GetMyEmploByEncodedNameQueryHandler.cs
+|   |   |
+|   |   |-- MyEmploDto.cs
+|   |   |-- MyEmploDtoValidator.cs
+|   | 
+|   |-- MyEmploService
+|   |   |-- Commands
+|   |   |  |-- CreateMyEmploServiceCommand.cs
+|   |   |  |-- CreateMyEmploServiceCommandHandler.cs
+|   |   |  |-- CreateMyEmploServiceCommandValidator.cs
+|   |   |
+|   |   |-- Queries
+|   |   |  |-- GetMyEmploServices
+|   |   |  |  |-- GetMyEmploServicesQuery.cs
+|   |   |  |  |-- GetMyEmploServicesQueryHandler.cs
+|   |   | 
+|   |   |-- MyEmploServiceDto.cs
+|   | 
+|   |-- Services
+|
+|
+|-- MyEmplo.Domain
+|   |
+|   |-- Entities
+|   |   |-- MyEmplo.cs
+|   |   |-- MyEmploService.cs
+|   |
+|   |-- Interfaces
+|   |   |-- IMyEmploRepository.cs
+|   |   |-- IMyEmploServiceRepository.cs
+|
+|
+|-- MyEmplo.Infrastructure
+|   |
+|   |-- Extensions
+|   |   |-- ServiceCollectionExtension.cs
+|   |
+|   |-- Migrations
+|   |   |-- ...
+|   |
+|   |-- Persistance
+|   |   |-- MyEmploDbContext.cs
+|   |
+|   |-- Repositories
+|   |   |-- MyEmploRepository.cs
+|   |   |-- MyEmploServiceRepository.cs
+|   |
+|   |-- Seeders
+|   |   |-- MyEmploSeeder.cs
+|   |
+|
+|-- MyEmplo.MVC
+|   
+|   |-- Areas
+|   |   |-- Identity
+|   |   |  |-- Data
+|   |   |  |-- Pages
+|   |
+|   |-- wwwroot
+|   |   |
+|   |   |-- img
+|   |   |  |-- icons
+|   |   |  |-- others
+|   |   |  |-- site
+|   |   |
+|   |   |-- css
+|   |   |  |-- site.css
+|   |   |
+|   |   |-- js
+|   |   |  |-- site.js
+|   |   |
+|   |   |-- lib
+|   |   |  |-- ...
+|   | 
+|   |-- Controllers
+|   |   |-- HomeController.cs
+|   |   |-- MyEmploController.cs
+|   |
+|   |-- Extensions
+|   |  |-- ControllerExtensions.cs
+|   |
+|   |-- Models
+|   |  |-- ErrorViewModel.cs
+|   |  |-- Notification.cs
+|   |
+|   |-- Views
+|   |  |-- Home
+|   |  | |-- Contact.cshtml
+|   |  | |-- index.cshtml
+|   |  | |-- NoAccess.cshtml
+|   |  |
+|   |  |-- MyEmplo
+|   |  | |-- _CreateMyEmploService.cshtml
+|   |  | |-- Create.cshtml
+|   |  | |-- Delete.cshtml
+|   |  | |-- Details.cshtml
+|   |  | |-- Edit.cshtml
+|   |  | |-- Index.cshtml
+|   |  |
+|   |  |-- Shared
+|   |  | |-- _Layout.cshtml
+|   |  | |-- _LoginPartial.cshtml
+|   |  |
+|   |  |-- _ViewImports.cshtml
+|   |  |-- _ViewStart.cshtml
+|   |
+|   |-- appsettings.json
+|   |-- Program.cs
+|   |... 
+```
