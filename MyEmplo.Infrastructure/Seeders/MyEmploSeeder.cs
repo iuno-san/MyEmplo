@@ -25,18 +25,18 @@ namespace MyEmplo.Infrastructure.Seeders
                 {
                     var John = new Domain.Entities.MyEmplo()
                     {
-                        FullName = "John Doe",
-                        Email = "johndoe@gmail.com",
-                        DateOfEmployment = "2023-01-01", // Przykładowa data zatrudnienia
-                        TypeOfEmployment = "Full-time", // Typ zatrudnienia
-                        Role = "Designer", // Rola pracownika
-                        Country = "Polska", // Kraj
-                        Address = "Kraków, długa 12",
-                        PhoneNumber = "123-456-7890", // Numer telefonu
-                        WhatsApp = "123456789", // Numer konta bankowego
-                        Skype = "john.doe.skype", // Nazwa użytkownika na Skype
-                        Messenger = "john_doe#1234", // Nazwa użytkownika na Messenger
-                        About = "I deal with various aspects of programming, especially interested in modern web technologies." // opis pracownika
+                        FullName = "Ahmed Khan",
+                        Email = "ahmedkhan@gmail.com",
+                        DateOfEmployment = "2023-01-01", 
+                        TypeOfEmployment = "Full-time", 
+                        Role = "Designer", 
+                        Country = "Canada",
+                        Address = "456 Market Street",
+                        PhoneNumber = "+1 (416) 555-7890", 
+                        WhatsApp = "+1 (416) 555-1234",
+                        Skype = "ahmed.marketing.expert",
+                        Messenger = "@ahmed.khan.marketing", 
+                        About = "Creative and data-driven marketing specialist with a focus on digital strategies. Proven track record of developing and executing successful marketing campaigns. Skilled in market analysis and trend identification. Enjoys bringing innovative ideas to the table."
                     };
                     John.EncodeName();
 

@@ -13,9 +13,24 @@ namespace MyEmplo.Application.MyEmplo
         public MyEmploDtoValidator(IMyEmploRepository repository)
         {
 
+            RuleFor(c => c.FullName)
+                .NotEmpty()
+                .MinimumLength(2).WithMessage("Name should have atleast 2 characters")
+                .MaximumLength(20).WithMessage("Name should have maxium of 20 characters");
+
             RuleFor(c => c.PhoneNumber)
+                .NotEmpty()
                 .MinimumLength(8)
-                .MaximumLength(12);
+                .MaximumLength(20);
+
+            RuleFor(c => c.Role)
+                .NotEmpty();
+
+            RuleFor(c => c.Email)
+                .NotEmpty();
+
+            RuleFor(c => c.TypeOfEmployment)
+                .NotEmpty();
         }
     }
 }
